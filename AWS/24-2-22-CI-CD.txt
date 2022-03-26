@@ -1,0 +1,170 @@
+Linking the Development job with the Testing job
+=====================================================
+The development job has to be linked with the Testing job
+so that once all the stages defined in the Development job are
+done it should automatically trigger the Testing job
+This is called as upstream/downstream config
+
+1 Open the dashboard of jenkins
+2 Go to the Development job--->Click on Configure
+3 Go to Post Build actions
+4 Click on Add Post Build action
+5 Click on Build other projects
+6 Enter project name as Testing
+7 Click on Apply--->Save
+8 Go to the dashboard of Jenkins
+9 Go to the Development job---->Click on Build icon
+  This will execute the first 3 stages defined in the Development 
+  job and then it will execute the Testing job
+
+========================================================================
+
+Copying artifacts from Development job to Testing job
+------------------------------------------------------
+The artifact is getting created in the second stage of CI-CD
+by the Development job so it will be present in the workspace
+of the Development job.From here we should pass it to the
+workspace of the Testing job
+
+1 Open the dashboard of Jenkins
+2 Click on Manage Jenkins-->Click on Manage Plugins
+3 Go to Available section
+4 Search for "Copy Artifact" plugin
+5 click on Install without restart
+6 Go to the dashboard of Jenkins
+7 Go to the Development job--->click on configure
+8 Go to Post Build Actions--->click on add post build action
+9 Click on Archive the artifacts
+10 Enter files to be archived as : **\*.war
+11 click on save
+12 Go to the dashboard of jenkins
+13 Go to the Testing job--->click on configure
+14 Go to Build section--->click on Add Build step
+15 Click on Copy artifacts from other jobs
+16 Enter job name as Development
+17 Apply--->Save
+
+Stage 5 (Continuous Delivery)
+================================
+1 Go to the dashboard of Jenkins
+2 Go to the Testing job--->Click on Configure
+3 Go to Post Build actions
+4 Click on Add post build actions
+5 Click on Deploy war/ear to container
+6 war/ear files: **/*.war
+  Context path: prodapp
+  Click on Add container
+  Select tomcat8
+  Enter tomcat8 credentials
+  Tomcat url: private_ip_of_prodserver:8080
+7 Click on Save
+
+
+To verify whether cont deployment and cont delivery is perfectly done.
+
+Open a new browser url and paste the following . It will display your appl.
+
+http://ec2-54-234-189-61.compute-1.amazonaws.com:8080/prodapp/
+http://ec2-54-234-189-61.compute-1.amazonaws.com:8080/testapp/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

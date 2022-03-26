@@ -1,0 +1,108 @@
+Setup of Jenkins
+=======================
+1 Create 3 AWS ubuntu 18 instances
+2 Name as JenkinsServer,QAServer,ProdServer
+3 Connect to JenkinsServer using gitbash
+4 Update the apt repository
+  sudo apt-get update
+5 Install Java
+  sudo apt-get install -y openjdk-8-jdk
+6 Install git and maven
+  sudo apt-get install -y git maven
+7 Download jenkins.war
+  wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+8 To start jenkins
+  java -jar jenkins.war
+9 To access jenkins from borwser
+  Launch any browser
+  public_ip_of_jenkin_server:8080
+10 In Unlock Jenkins page enter the admin password--->Continue
+11 Click on Install suggested plugins
+12 Create first admin user--->Continue
+13 Click on Finish
+
+Setting up tomcat on QAServer and ProdServer
+====================================================
+1 Connect to QAServer via gitbash
+
+2 Update the apt repository
+  sudo apt-get update
+
+3 Install tomcat8
+  sudo apt-get install -y tomcat8
+
+4 Install tomcat8-admin
+  sudo apt-get install -y tomcat8-admin
+
+5 Set username and password in tomcat-users.xml file
+  sudo vim /etc/tomcat8/tomcat-users.xml
+  Remove the entire content of the file and add the below data
+  <tomcat-users>
+    <user username="raman" password="raman" roles="manager-script"/>
+  </tomcat-users>
+
+6 Restart tomcat8
+  sudo service tomcat8 restart
+  Repeat the above 6 steps on the ProdServer AWS instance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

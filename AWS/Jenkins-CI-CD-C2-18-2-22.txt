@@ -1,0 +1,144 @@
+Stage 1 (Continuous Download)
+==================================
+1 Open the dashboard of Jenkins
+2 Click on New item--->Enter item name as Development
+3 Select Free style Project--->OK
+4 Go to Source Code Management
+5 Select Git
+6 Enter the github url where the developer has uploaded the code
+  https://github.com/selenium-saikrishna/maven.git
+7 Click on Apply--->Save
+8 Go to the Dashboard of Jenkins--->Go to the Development job
+  Click on Build icon
+  This job will downlaod all the code from the remote git repository
+
+Stage 2 (Continuous Build)
+================================
+1 Open the dashboard of Jenkins
+2 Go to the Development job--->Click on Configure
+3 Go to Build section
+4 Click on Add Build step
+5 Click on Invoke Top level maven targets
+6 Enter the maven Goal as "package"
+7 Click on apply--->Save
+8 Go to the dashboard of Jenkins
+9 Go to Development job--->Click on Build
+  This job will create an artifact from the code downloaded in the previous stage
+  This artifact comes in the fromat of a war file
+
+Stage 3 (Continuous Deployment)
+===================================
+1 Open the dashboard of JEnkins
+2 Click on Manage Jenkins
+3 Click on Manage Plugins
+4 Go to Available Section--->Search for "Deploy to Container" plugin
+5 Click on Install without restart
+6 Go to the dashboard of Jenkins
+7 Go to Development job--->Click on Configure
+8 Go to Post Build actions--->Click on Add Post Build action
+9 Click on Deploy war/ear to container
+  war/ear file: **\*.war
+  context path: testapp
+  Click on Add container--->Select tomcat8
+  Enter tomcat username and password
+  Tomcat url: http://private_ip_of_qaserver:8080
+10 Click on Apply---->Save
+11 Go to the dashboard of Jenkins--->Go to Development job--->Click on Build icon
+   This job will deploy the artifact created instage 2 into the tomcat in QAServers
+   To access the application deployed in tomcat
+   a) Launch any browser
+   b) public_ip_of_qasever:8080/testapp
+
+Stage 4 (Continuous Testing)
+===================================
+1 Open the dashboard of Jenkins
+2 Click on New item--->Enter item name as Testing
+3 Go to Source Code Management--->Click on Git
+4 Enter the github url where testers have uploaded the code
+  https://github.com/selenium-saikrishna/FunctionalTesting.git
+5 Go to Build section--->Click on add build step
+6 Click on Execute Shell command
+  java -jar path_testing.jar
+7 Click on Save
+8 Go to the dashboard of Jenkins
+9 Go to the Testing job--->Click on Build icon
+  This job will download the selenium test scripts created by testers and 
+  execute them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo apt-get remove tomcat8 tomcat8-admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+

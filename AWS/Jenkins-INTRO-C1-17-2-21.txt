@@ -1,0 +1,108 @@
+Jenkins
+==========
+This is a tool for implementing for CI-CD
+
+Stages in CI-CD
+===================
+
+Stage 1 Continuous Download
+===============================
+Developers create some application code and upload in the version
+controlling system,whenever code changer are done and uploaded
+jenkins will get a notification and it will download that code
+This is called continuous download
+
+Stage 2 Continuous Build
+==============================
+The code downloaded in the previous stage has to be converted into 
+an artifact.This is done by jenkins with the help of plugin like
+maven,ant.msbuild etc.The outcome of this build is an artifact is 
+generated
+
+Stage 3 Continuous Deployment
+===================================
+The artifact created in the previous stage has to be deployed in the
+testing environment and this environment can be running on some 
+applications servers linke tomcat,jboss,weblogic etc.Jenkins will
+deploy the artifact into these application server so that testers can 
+start accessing the application.
+
+State 4 Continuous Testing
+=============================
+Once the application is deployed into the testing environment Jenkins
+will execute the automation test scripts created by testers.These test
+scripts could be created using any tool like Selenium,Codedui etc.
+Jenkins runs these automation test scripts and checks if the application
+is working correctly.If it is not jenkins will notify the developers via
+automated emails and Developer will modify the code and upload it again
+into the version controlling system.Jenkins will again start from stage 1
+
+Stage 5 Continuous Delivery
+==================================
+In this stage Jenkins will deploy the artifact into the prodservers where
+the enduser or client can start accessing it.This is generally donw after 
+taking approvals from the concerned team.
+
+Note: The first 4 stages are called Continuous Integration
+The last stage is called Continuous Delivery
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+

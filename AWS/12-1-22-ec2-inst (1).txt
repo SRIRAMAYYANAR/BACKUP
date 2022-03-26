@@ -1,0 +1,93 @@
+
+
+
+CREATE AN EC2-INSTANCE:
+
+1. CHOOSE LAUNCH INSTANCE 
+2. CHOOSE THE INST TYPE ACCORDING TO YOUR APPLICATION NEED. WE HAVE CHOOSEN t2.micro(free)
+3. CHOOSE No OF INSTANCE:1
+4. CHOOSE THE VOL (DEFAULT 8 GB ROOT VOL)
+5. ASSIGN NAME TO YOUR INSTANCE USING TAG
+Name: LT-UBUNTU
+6.CONFIGURE SEC GROUP
+
+INBOUND: SSH ANYWHERE
+
+7. REVIEW
+
+8. CHOOSE THE KEY-PAIR(EITHER EXISTING OR CREATE A NEW KEY-PAIR)
+9. CONNECT USING PUTTY  
+
+DOWNLOAD PUTTY FROM www.putty.org
+
+
+10. IT WILL ASK FOR AUTHENTICATION.YOU NEED TO GIVE THE .PPK KEY
+
+
+AFTER THAT YOU WILL BE GET CONNECTED TO THE UBUNTU SERVER:
+
+1. INSTALL JAVA
+
+sudo apt-get update -y
+sudo apt-get install openjdk-8-jdk -y
+
+java will be installed in /usr/lib/jvm
+
+2. INSTALL PYTHON3
+
+sudo apt-get install python3 -y
+
+$python3
+
+>> exit()
+
+$
+
+3. INSTALL MY-SQL
+
+sudo apt-get install mysql-server mysql-client -y
+
+To connect with:
+
+sudo mysql -u root -p
+passwd:
+
+mysql>create database lt;
+mysql>show database;
+mysql>use lt;
+mysql>create table emp(eno number,ename varchar(10),job varchar(10);
+mysql>insert into emp values(1,'ram','dba');
+mysql>select * from emp;
+
+
+class Sample
+{
+public static void main(String args[])
+{
+System.out.println("welcome to AWS ");
+}
+}
+
+
+
+
+WEB SERVER USING AMAZON LINUX BASED INSTANCE:
+
+1. CREATE AN EC2 INST USING AMAZONLINUX BASED AMI
+
+2. CONNECT TO THE INSTANCE USING PUTTY AND EXECUTE THE FOLLOWING COMMNADS TO INSTALL A WEB SERVER.
+sudo yum update -y
+sudo service httpd status
+sudo yum install httpd -y
+sudo service httpd start
+
+o/p:
+ Active: active (running)
+
+
+sudo vi /var/www/html/index.html
+
+<html>
+<body bgcolor=blue><h1>WELCOME TO SMI WEB SERVER </h1>
+</body>
+</html>
